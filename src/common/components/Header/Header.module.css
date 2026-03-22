@@ -1,0 +1,16 @@
+.container {
+    border-bottom: 1px solid black;
+    padding: 0 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.list {
+    display: flex;
+    gap: 40px;
+}
+
+.activeLink {
+    font-weight: bold;
+}
