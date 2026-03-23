@@ -1,0 +1,5 @@
+export {FavoritesPage} from './Favorites/FavoritesPage.tsx'
+export {Header} from './Header/Header.tsx'
+export {SearchPage} from '@/features/movies/ui/SearchPage/SearchPage.tsx'
+export {PageNotFound} from './PageNotFound/PageNotFound.tsx'
+export {SearchBar} from './SearchBar/SearchBar.tsx'

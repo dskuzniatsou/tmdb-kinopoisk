@@ -1,7 +1,10 @@
 
 import s from './App.module.css'
-import {Header} from "../../common/components/Header/Header.tsx";
-import {Routing} from "../../common/routing";
+
+
+import {Footer} from "@/common/components/Footer/Footer.tsx";
+import {Routing} from "@/common/routing";
+import {Header} from "@/common/components";
 
 export const App = ()=> {
 
@@ -12,6 +15,7 @@ export const App = ()=> {
         <div className={s.layout}>
           <Routing />
         </div>
+          <Footer />
         {/*<ToastContainer />  // для отображения ошибок  в виде всплывающих окон*/}
       </>
   )
