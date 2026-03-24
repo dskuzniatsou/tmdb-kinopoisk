@@ -1,15 +1,18 @@
 // components/MovieCard/MovieCard.tsx
 import { useNavigate } from 'react-router-dom';
-import { Movie } from '@/types/movie';
-import { IMAGE_BASE_URL, IMAGE_SIZES } from '@/constants/api';
+
+
 import styles from './MovieCard.module.css';
+import type {MoviesApiTypes} from "@/features/movies/api/movieApi.types.ts";
+import {IMAGE_BASE_URL, IMAGE_SIZES} from "@/common/constants/images.ts";
 
 interface MovieCardProps {
-    movie: Movie;
+    movie: MoviesApiTypes;
 }
 
 export function MovieCard({ movie }: MovieCardProps) {
     const navigate = useNavigate();
+
 
     const posterUrl = movie.poster_path
         ? `${IMAGE_BASE_URL}/${IMAGE_SIZES.poster}${movie.poster_path}`

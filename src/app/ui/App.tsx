@@ -12,7 +12,7 @@ export const App = ()=> {
       <>
         <Header />
         {/*{isGlobalLoading && <LinearProgress />}*/}
-        <div className={s.layout}>
+        <div className={s.main}>
           <Routing />
         </div>
           <Footer />
