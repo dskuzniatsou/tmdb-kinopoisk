@@ -7,8 +7,9 @@ export const moviesApi = createApi({
     baseQuery: fetchBaseQuery({
         baseUrl: import.meta.env.VITE_BASE_URL,
         headers: {
-            'API-KEY': import.meta.env.VITE_API_KEY,
-            // 'Authorization': `Bearer ${import.meta.env.VITE_API_KEY}`,
+            // 'API-KEY': import.meta.env.VITE_API_KEY,
+            accept: 'application/json',
+            Authorization: `Bearer ${import.meta.env.VITE_ACCESS_TOKEN}`,
         },
     }),
     endpoints: build => ({
@@ -26,9 +27,40 @@ export const moviesApi = createApi({
                 return moviesWithBackdrop[randomIndex];
             },
         }),
+        // Получение популярных фильмов
+        getPopularMovies: build.query<MoviesResponse, number | void>({
+            query: (page = 1) => ({
+                method: 'get',
+                url: `movie/popular?page=${page}`,
+            }),
+        }),
+        // Получение топ-рейтинговых фильмов
+        getTopRatedMovies: build.query<MoviesResponse, number | void>({
+            query: (page = 1) => `movie/top_rated?page=${page}`,
+        }),
+
+        // Получение предстоящих фильмов
+        getUpcomingMovies: build.query<MoviesResponse, number | void>({
+            query: (page = 1) => `movie/upcoming?page=${page}`,
+        }),
+        // Получение фильмов в прокате
+        getNowPlayingMovies: build.query<MoviesResponse, number | void>({
+            query: (page = 1) => `movie/now_playing?page=${page}`,
+        }),
+
+        // Поиск фильмов
+        searchMovies: build.query<MoviesResponse, string>({
+            query: (query) => `search/movie?query=${encodeURIComponent(query)}`,
+        }),
     }),
 })
 
 // `createApi` создает объект `API`, который содержит все эндпоинты в виде хуков,
 // определенные в свойстве `endpoints`
-export const { useGetRandomPopularMovieQuery } = moviesApi
+export const { useGetPopularMoviesQuery,
+    useGetRandomPopularMovieQuery,
+    useGetTopRatedMoviesQuery,
+    useGetUpcomingMoviesQuery,
+    useGetNowPlayingMoviesQuery,
+    useSearchMoviesQuery,
+    useLazySearchMoviesQuery } = moviesApi

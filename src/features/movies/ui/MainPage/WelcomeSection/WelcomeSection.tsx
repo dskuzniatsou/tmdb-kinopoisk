@@ -28,11 +28,11 @@ export const WelcomeSection = () => {
     //         </div>
     //     );
     // }
-
+    console.log(randomMovie)
     const backdropUrl = randomMovie?.backdrop_path
         ? `${IMAGE_BASE_URL}/${IMAGE_SIZES.backdrop}${randomMovie.backdrop_path}`
         : `${IMAGE_BASE_URL}/${IMAGE_SIZES.backdrop}${IMAGE_NOTFOUND}`;
-    console.log(randomMovie)
+console.log(error)
     return (
         <div className={s.container} style={{
             backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(${backdropUrl})`,
