@@ -1,5 +1,5 @@
 import {SearchBar} from "@/common/components";
-import s from './WelcomeSection.module.css'
+import s from '../MainPage.module.css'
 import {useGetRandomPopularMovieQuery} from "@/features/movies/api/moviesApi.ts";
 import {IMAGE_BASE_URL, IMAGE_NOTFOUND, IMAGE_SIZES} from "@/common/constants/images.ts";
 
