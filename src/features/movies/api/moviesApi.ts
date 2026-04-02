@@ -47,7 +47,15 @@ export const moviesApi = createApi({
         getNowPlayingMovies: build.query<MoviesResponse, number | void>({
             query: (page = 1) => `movie/now_playing?page=${page}`,
         }),
-
+        getMoviesByCategory: build.query<
+            MoviesResponse,
+            { category: string; page: number }
+        >({
+            query: ({ category, page }) => ({
+                method: 'get',
+                url: `movie/${category}?page=${page}`,
+            }),
+        }),
         // Поиск фильмов
         searchMovies: build.query<MoviesResponse, string>({
             query: (query) => `search/movie?query=${encodeURIComponent(query)}`,
@@ -63,4 +71,4 @@ export const { useGetPopularMoviesQuery,
     useGetUpcomingMoviesQuery,
     useGetNowPlayingMoviesQuery,
     useSearchMoviesQuery,
-    useLazySearchMoviesQuery } = moviesApi
+    useLazySearchMoviesQuery, useGetMoviesByCategoryQuery  } = moviesApi

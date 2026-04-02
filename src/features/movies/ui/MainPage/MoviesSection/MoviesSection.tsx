@@ -111,7 +111,9 @@ export function MovieSection({
 
             <div className={s.grid}>
                 {displayedMovies.map((movie) => (
-                    <MovieCard key={movie.id} movie={movie} />
+                    <MovieCard key={movie.id} movie={movie} onFavoriteToggle={(movie, isFavorite) => {
+                        console.log(`${movie.title} - ${isFavorite ? 'добавлен в' : 'удален из'} избранного`);
+                    }} />
                 ))}
             </div>
 
