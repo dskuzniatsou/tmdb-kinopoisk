@@ -18,19 +18,34 @@ export const SearchBar=()=> {
             handleSearch();
         }
     };
+    const handleClear = () => {
+        setSearchQuery('');
+    };
 
     const isValid = searchQuery.trim().length > 0;
 
     return (
         <div className={s.searchContainer}>
+            <div className={s.inputWrapper}>
             <input
-                type="text"
+                type="search"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyPress={handleKeyPress}
                 placeholder="Search for a movie..."
                 className={s.searchInput}
             />
+                {isValid && (
+                    <button
+                        className={s.clearButton}
+                        onClick={handleClear}
+                        type="button"
+                        aria-label="Очистить поиск"
+                    >
+                        ✕
+                    </button>
+                )}
+                </div>
             <button
                 onClick={handleSearch}
                 disabled={!isValid}
